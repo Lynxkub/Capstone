@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title%}{{item.menu_item_name}}{% endblock %}
+
+
+
+{% block content %}
+<h1>{{menu_item.menu_item_name}}</h1>
+<h2>{{menu_item.menu_price}}</h2>
+<h3>{{menu_item.menu_description}}</h3>
+
+<h4>Ingredients:</h4>
+{% for product in ingredients %}
+<p>{{product.item_name.name.capitalize()}}
+    <button data-id = '{{product.id}}' class = 'item_delete_button'>X</button>
+</p>
+
+{% endfor %}
+<form  method = 'POST'>
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{field}}
+
+        {% for error in field.error %}
+        {{error}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button id = 'add_product'>Add Ingredient</button>
+</form>
+{% endblock %}

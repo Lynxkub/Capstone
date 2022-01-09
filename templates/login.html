@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+<form method = 'POST'>
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{field}}
+
+        {% for error in field.error %}
+        {{error}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button type='submit' class = 'btn btn-md btn-primary'>Sign In</button>
+</form>
+<p>Want to see some sample data? Log in using:
+    <br>
+    Username : Test_User
+    Password : test_user
+</p>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Actuals{% endblock %}
+
+
+
+{% block content %}
+
+<form method = 'PATCH'>
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{field}}
+
+        {% for error in field.error %}
+        {{error}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button type='submit'>Submit Actuals</button>
+</form>
+
+{% endblock %

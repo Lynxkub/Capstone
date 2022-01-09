@@ -1,0 +1,48 @@
+{% extends 'base_2.html' %}
+
+
+{% block title %}Add Purchase{% endblock %}
+
+{% block content %}
+<h1>Purchases for week</h1>
+<div class = 'container'>
+    <div class = 'row'>
+        <div class = 'col'>
+<form  method = 'POST'>
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{field}}
+
+        {% for error in field.error %}
+        {{error}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button id = 'add_purchase'>Add Purchase</button>
+</form>
+</div>
+<div class = 'col'>
+{% for purchase in purchases %}
+<table class = 'table table-sm table-bordered border-dark' id = '{{purchase.id}}'>
+ <tr>
+<th colspan = '2'>{{purchase.product_name.name}}</th>
+<th colspan = '1'><button data-id = '{{purchase.id}}' class = 'btn btn-sm btn-outline-danger delete_purchase'>X</button></th>
+</tr>
+<tr>
+    <th scope = 'col'>Amount Purchased</th>
+    <th scope = 'col'>Amount Spent</th>
+    <th scope = 'col'>Date</th>
+</tr>
+<tr>
+<td>{{purchase.amount_purchased}}</td>
+<td>${{purchase.amount_spent}}</td>
+<td>{{purchase.date_purchased}}</td>
+</tr>
+</table>
+{% endfor %}
+</div>
+</div>
+</div>
+{% endblock %}

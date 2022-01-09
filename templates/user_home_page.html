@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}{{user.restaurant_name}}{% endblock %}
+
+{% block content %}
+
+<h1>{{user.restaurant_name}}</h1>
+<h3>Location: {{user.location}}</h3>
+<h3>Ideal Food Cost: {{user.ideal_food_cost}}%</h3>
+
+{% for menu in menus %}
+<p><a href = '/new_menu_items/{{menu.id}}' class = 'btn btn-success' role = 'button'>{{menu.menu_name}} - {{menu.menu_description}}</a>
+    <button  type = 'button' data-id = '{{menu.id}}' class = 'menu_delete_button btn btn-sm btn-outline-danger'  >X</button>
+    
+</p>
+{% endfor %}
+
+
+<p>
+    <a href = '/new_menu' class = 'btn btn-primary' role = 'button'>Create New Menu</a>
+</p>
+<footer>User Flow:
+    <br>
+    <ol>
+        <li>Create Menu and add menu items with ingredients</li>
+        <li>Forecast Sales/Insert actual daily sales as week progresses</li>
+        <li>Enter purchases as week progresses</li>
+        <li>Submit Sales once week is over</li>
+        <li>Enter in and submit final inventory count</li>
+    </ol>
+</footer>
+
+
+
+
+{% endblock %}

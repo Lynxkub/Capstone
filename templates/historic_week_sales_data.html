@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Week {{sales_week.week}}{% endblock %}
+
+
+{% block content %}
+<table class = 'table table-bordered border-dark'>
+    <h4>Week {{sales_week.week}} Forecast</h4>
+    <tr>
+        <th scope = 'col'>Monday</th>
+        <th scope = 'col' >Tuesday</th>
+        <th scope = 'col'>Wednesday</th>
+        <th scope = 'col'>Thursday</th>
+        <th scope = 'col'>Friday</th>
+        <th scope = 'col'>Saturday</th>
+        <th scope = 'col'>Sunday</th>
+        <th scope = 'col'>Weekly Total</th>
+    </tr>
+
+<tr>
+    <td>{{sales_week.monday_forecasted}}</td>
+    <td>{{sales_week.tuesday_forecasted}}</td>
+    <td>{{sales_week.wednesday_forecasted}}</td>
+    <td>{{sales_week.thursday_forecasted}}</td>
+    <td>{{sales_week.friday_forecasted}}</td>
+    <td>{{sales_week.saturday_forecasted}}</td>
+    <td>{{sales_week.sunday_forecasted}}</td>
+    <td>{{sales_week.forecasted_total}}</td>
+</tr>
+</table>
+<table class = 'table table-bordered border-dark'>
+    <h4>Week {{sales_week.week}} Actuals</h4>
+    <tr>
+        <th scope = 'col'>Monday</th>
+        <th scope = 'col'>Tuesday</th>
+        <th scope = 'col'>Wednesday</th>
+        <th scope = 'col'>Thursday</th>
+        <th scope = 'col'>Friday</th>
+        <th scope = 'col'>Saturday</th>
+        <th scope = 'col'>Sunday</th>
+        <th scope = 'col'>Weekly Total</th>
+    </tr>
+    <tr>
+       <td>{{sales_week.monday_actual}}</td>
+       <td>{{sales_week.tuesday_actual}}</td>
+       <td>{{sales_week.wednesday_actual}}</td>
+       <td>{{sales_week.thursday_actual}}</td>
+       <td>{{sales_week.friday_actual}}</td>
+       <td>{{sales_week.saturday_actual}}</td>
+       <td>{{sales_week.sunday_actual}}</td>
+       <td>{{sales_week.actual_total}}</td>
+    </tr>
+</table>
+{% endblock %}

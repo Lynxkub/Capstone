@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Submit Sales?{% endblock %}
+
+{% block content %}
+
+
+    <p>Do you want to submit your sales for the week? Once submitted, current sales data will be reset and logged on historical page</p>
+    <a href = '/submit_sales'><button type = 'button' class = 'btn btn-success'>Confirm</button></a>
+    <a href = '/sales'><button type = 'button' class = 'btn btn-danger'>Do Not Submit Sales</button></a>
+
+{% endblock %}

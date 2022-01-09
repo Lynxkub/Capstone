@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Inventory Results{% endblock %}
+
+{% block content %}
+
+
+{% for week in weekly_res %}
+<a href = '/week_results/{{week.week}}'>Week {{week.week}}</a>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{week_res.week}} Results{% endblock %}
+
+
+{% block content %}
+<table class = 'table table-bordered border-dark'>
+<h4>Week {{week_res.week}} Inventory Results</h4>
+<tr>
+    <th scope = 'col'>Actal Food Cost</th>
+    <th scope = 'col'>Actual vs Goal Food Cost</th>
+</tr>
+<tr>
+    <td>{{week_res.actual_food_cost}}</td>
+    <td>{{week_res.actual_vs_goal_food_cost}}</td>
+</tr>
+</table>
+
+
+
+{% endblock %}

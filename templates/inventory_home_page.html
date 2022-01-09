@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{user.restaurant_name}} Inventory{% endblock %}
+
+{% block content %}
+
+<h4>Weekly Purchases:</h4>
+
+<h4>Current Budget:</h4>
+<table class = 'table table-bordered border-dark'>
+    <tr>
+<th scope = 'col'>Starting Budget</th>
+<th scope = 'col'>Weekly Purchases</th>
+<th scope = 'col'>Remaining Budget</th>
+</tr>
+<tr>
+<td>{{budget.starting_budget}}</td>
+<td>{{budget.weekly_purchases}}</td>
+<td>{{budget.remaining_budget}}</td>
+</tr>
+</table>
+<a href ='/add_purchase' class = 'btn btn-success' role = 'button'>Add a Purchase</a>
+<a href = '/inventory_count/{{user.id}}' class = 'btn btn-success' role = 'button'>Inventory Count</a>
+<a href = '/historic_inventory_results/{{user.id}}' class = 'btn btn-success' role = 'button'>Inventory Results</a>
+<p><strong>Make sure to create a sales forecast and have a week's worth of actual sales created before submitting inventory count. Otherwise your numbers will be inaccurate.</strong></p>
+{% endblock %}

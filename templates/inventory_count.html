@@ -1,0 +1,40 @@
+{% extends 'base_2.html' %}
+
+{% block title %}Inventory Count{% endblock %}
+
+{% block content %}
+<div class = 'container' data-id = '{{user.id}}' id = 'id_holder'>
+    <div class = 'row'>
+        <div class = 'col'>
+<form  method = 'POST'>
+    {{form.hidden_tag()}}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{field}}
+
+        {% for error in field.error %}
+        {{error}}
+        {% endfor %}
+    </p>
+    {% endfor %}
+
+    <button id = 'add_count' data-id = '{{user.id}}' class = 'btn btn-primary btn-sm'>Submit Count For Product</button>
+    
+</form>
+
+<a href = '/first_check_submit'><button id = 'full_submit' data-id = '{{user.id}}' class = 'btn btn-warning btn-sm'>Submit Full Count</button></a>
+<footer>Still seeing inventory counts from last week? Make sure to submit sales before entering in ending inventory</footer>
+</div>
+<div class = 'col'>
+<ul id = 'end_inv_list'>
+{% for item in end_inv %}
+<li data-id = '{{item.id}}' class = 'delete_entry'>{{item.item_name.name}} - {{item.ending_item_count}} - ${{item.ending_dollar_amount}}
+<button  type = 'submit' class = 'delete_item btn btn-sm btn-outline-danger' data-id = '{{item.id}}'>X</button>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+{% endblock %}

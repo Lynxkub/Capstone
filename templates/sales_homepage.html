@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Sales Forcasting{% endblock %}
+
+{% block content %}
+<table class = 'table table-bordered border-dark'>
+    <h4>Weekly Forecast</h4>
+    <tr>
+        <th scope = 'col'>Monday</th>
+        <th scope = 'col'>Tuesday</th>
+        <th scope = 'col'>Wednesday</th>
+        <th scope = 'col'>Thursday</th>
+        <th scope = 'col'>Friday</th>
+        <th scope = 'col'>Saturday</th>
+        <th scope = 'col'>Sunday</th>
+        <th scope = 'col'>Weekly Total</th>
+    </tr>
+    <tr>
+        <td>{{forecast.monday}}</td>
+        <td>{{forecast.tuesday}}</td>
+        <td>{{forecast.wednesday}}</td>
+        <td>{{forecast.thursday}}</td>
+        <td>{{forecast.friday}}</td>
+        <td>{{forecast.saturday}}</td>
+        <td>{{forecast.sunday}}</td>
+        <td>{{forecast.weekly_total}}</td>
+    </tr>
+</table class = 'table'>
+<a href = '/update_forecast' class = 'btn btn-info btn-sm'>Edit Forecast</a>
+<table class = 'table table-bordered border-dark'>
+    <h4>Weekly Actuals</h4>
+    <tr>
+        <th scope = 'col'>Monday</th>
+        <th scope = 'col'>Tuesday</th>
+        <th scope = 'col'>Wednesday</th>
+        <th scope = 'col'>Thursday</th>
+        <th scope = 'col'>Friday</th>
+        <th scope = 'col'>Saturday</th>
+        <th scope = 'col'>Sunday</th>
+        <th scope = 'col'>Weekly Total</th>
+    </tr>
+    <tr>
+        <td>{{actuals.monday or 0}}</td>
+        <td>{{actuals.tuesday or 0}}</td>
+        <td>{{actuals.wednesday or 0}}</td>
+        <td>{{actuals.thursday or 0}}</td>
+        <td>{{actuals.friday or 0}}</td>
+        <td>{{actuals.saturday or 0}}</td>
+        <td>{{actuals.sunday or 0}}</td>
+        <td>{{actuals.weekly_total or 0}}</td>
+    </tr>
+</table>
+<a href = '/update_actuals' class = 'btn btn-info btn-sm'>Update Actuals</a>
+
+<table class = 'table table-bordered border-dark'>
+    <h4>AvF $$</h4>
+    <tr>
+        <th scope = 'col'>Monday</th>
+        <th scope = 'col'>Tuesday</th>
+        <th scope = 'col'>Wednesday</th>
+        <th scope = 'col'>Thursday</th>
+        <th scope = 'col'>Friday</th>
+        <th scope = 'col'>Saturday</th>
+        <th scope = 'col'>Sunday</th>
+        <th scope = 'col'>Weekly Total</th>
+    </tr>
+    <tr>
+        <td>{{avf_dollars.monday}}</td>
+        <td>{{avf_dollars.tuesday}}</td>
+        <td>{{avf_dollars.wednesday}}</td>
+        <td>{{avf_dollars.thursday}}</td>
+        <td>{{avf_dollars.friday}}</td>
+        <td>{{avf_dollars.saturday}}</td>
+        <td>{{avf_dollars.sunday}}</td>
+        <td>{{avf_dollars.weekly_total}}</td>
+    </tr>
+</table>
+
+<table class = 'table table-bordered border-dark'>
+    <h4>AvF %%</h4>
+    <tr>
+        <th scope = 'col'>Monday</th>
+        <th scope = 'col'>Tuesday</th>
+        <th scope = 'col'>Wednesday</th>
+        <th scope = 'col'>Thursday</th>
+        <th scope = 'col'>Friday</th>
+        <th scope = 'col'>Saturday</th>
+        <th scope = 'col'>Sunday</th>
+        <th scope = 'col'>Weekly Total</th>
+    </tr>
+    <tr>
+        <td>{{avf_percent.monday}}%</td>
+        <td>{{avf_percent.tuesday}}%</td>
+        <td>{{avf_percent.wednesday}}%</td>
+        <td>{{avf_percent.thursday}}%</td>
+        <td>{{avf_percent.friday}}%</td>
+        <td>{{avf_percent.saturday}}%</td>
+        <td>{{avf_percent.sunday}}%</td>
+        <td>{{avf_percent.weekly_total}}%</td>
+    </tr>
+</table>
+
+
+<div>
+    <form action = '/confirm_sales_submit'>
+    <button class = 'btn btn-info btn-lg'>Submit Weekly Sales</button>
+    <p>Only do at the end of the week! This will wipe current week of sales and log it in historical sales!</p>
+</form>
+</div>
+
+{% endblock %}

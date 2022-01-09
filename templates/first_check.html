@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirm Submit{% endblock %}
+
+
+
+{% block content %}
+
+<h3>Are you sure you want to submit your weekly inventory count?</h3>
+<a href = '/submit_full_count'><button type = 'button' class = 'btn btn-success'>Confirm</button></a>
+<a href = '/inventory_count/{{user.id}}'><button type = 'button' class = 'btn btn-danger'>Go Back</button></a>
+{% endblock %}

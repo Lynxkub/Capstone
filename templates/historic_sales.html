@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Historic Sales{% endblock %}
+
+
+{% block content %}
+{% for date in h_sales %}
+<p><a href = '/historical/week_{{date.week}}'>Week {{date.week}}</a></p>
+
+{% endfor %}
+
+{% endblock %}
